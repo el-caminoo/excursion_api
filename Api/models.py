@@ -19,7 +19,7 @@ class Excursion(models.Model):
     language = ListTextField(base_field= models.CharField(max_length=11, blank=True), size=100)
     priceLevel = models.IntegerField()
     currency = models.CharField(max_length=22)
-    mealInfo = models.CharField(max_length=22)
+    mealInfo = models.CharField(max_length=22, blank=True)
     status = models.CharField(max_length=22, choices=CHOICES, default='Active')
     shortDescription = models.CharField(max_length=44)
     longDescription = models.CharField(max_length=88)
