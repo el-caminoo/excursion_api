@@ -1,0 +1,1 @@
+web: gunicorn gatePass.wsgi --log-file -

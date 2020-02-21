@@ -1,0 +1,274 @@
+{
+	"info": {
+		"_postman_id": "3c915842-1344-446d-bddb-c181b61e7a39",
+		"name": "Excursions API",
+		"description": "Using JWT(json web token) to access protected Urls",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://127.0.0.1:8000/api/token/",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "qalac",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "commit2me",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/token/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"token",
+						""
+					]
+				},
+				"description": "Url endpoint to obtain an access token used to view protected urls"
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/api/list",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNTgyMjk0NTc2LCJqdGkiOiJjZWFjYmZiYzI1MTA0ZDljYTU4YTA2ZDYzMWEwZDM1YiIsInVzZXJfaWQiOjF9.9JZcv3oGrTEKkdx_5LgSG145taWxxdTmzUg5qkVNX94",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/list",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"list"
+					]
+				},
+				"description": "Demonstrating how to access a protected url using an access token"
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/api/get/2",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNTgyMjk0OTQxLCJqdGkiOiI1NTA5MTU1ZGNhZmM0YzI4OWEzYzEwZGEyNTgwODM1NCIsInVzZXJfaWQiOjF9.5jvOOxh8ilizMCvmWmhh60mruWggGP-i6zeaof_lhLY",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/get/2",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"get",
+						"2"
+					]
+				},
+				"description": "Accessing a protected url with an access token"
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/api/get/2",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/get/2",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"get",
+						"2"
+					]
+				},
+				"description": "Accessing a protected url without an access token"
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/api/edit/2",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/edit/2",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"edit",
+						"2"
+					]
+				},
+				"description": "Attempting to edit an excursion object without an access token"
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/api/refresh/",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "refresh",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTU4MjM4MTA0MSwianRpIjoiZjllMjE3Njg2MWZmNDI2Nzk2NjI0MWEyNjg5MTAxOWMiLCJ1c2VyX2lkIjoxfQ.D8UH7F5pbEJZIUAQD4IxXzhEPdLw7vRvVfiGRW9L6uk",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/refresh/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"refresh",
+						""
+					]
+				},
+				"description": "Making use of the refresh token to obtain a fresh access token used to gain access to protected Urls"
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/api/edit/2",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNTgyMjk1NzM5LCJqdGkiOiI0MThhMTg4YmMzMWQ0YzNhYWRmNDRhZDU2NDcyYWI1NCIsInVzZXJfaWQiOjF9.k1CZY7q0vE5pa0X3AyJCjWD-sCygAifoSxhZUwCWPaY",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/edit/2",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"edit",
+						"2"
+					]
+				},
+				"description": "Editing a specific excursion object with proper authorization"
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNTgyMjk1NzM5LCJqdGkiOiI0MThhMTg4YmMzMWQ0YzNhYWRmNDRhZDU2NDcyYWI1NCIsInVzZXJfaWQiOjF9.k1CZY7q0vE5pa0X3AyJCjWD-sCygAifoSxhZUwCWPaY",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "2389bf6f-1305-4f2d-89c3-f66203c3431f",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "667320ae-74b4-4d7b-be35-06efdf92bf54",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
